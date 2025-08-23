@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:meals_app/core/helper/cach_helper.dart';
+import 'package:meals_app/core/helper/cache_helper.dart';
 import 'package:meals_app/core/services/service_locator.dart';
-import 'package:meals_app/core/utils/app_colors.dart';
 import 'package:meals_app/features/splash/splash_view.dart';
 
 void main() async {
@@ -27,9 +26,7 @@ class MealsApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
-      ),
+      theme: ThemeData(scaffoldBackgroundColor: Colors.white),
       debugShowCheckedModeBanner: false,
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,

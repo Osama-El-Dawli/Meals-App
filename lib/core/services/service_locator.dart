@@ -1,5 +1,5 @@
 import 'package:get_it/get_it.dart';
-import 'package:meals_app/core/helper/cach_helper.dart';
+import 'package:meals_app/core/helper/cache_helper.dart';
 
 final getIt = GetIt.instance;
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:meals_app/core/consts/app_consts.dart';
-import 'package:meals_app/core/helper/cach_helper.dart';
+import 'package:meals_app/core/helper/cache_helper.dart';
 import 'package:meals_app/core/services/service_locator.dart';
 import 'package:meals_app/core/utils/app_assets.dart';
 import 'package:meals_app/features/home/home_layout.dart';
