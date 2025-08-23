@@ -1,6 +1,10 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:meals_app/core/consts/app_consts.dart';
+import 'package:meals_app/core/helper/cach_helper.dart';
+import 'package:meals_app/core/services/service_locator.dart';
+import 'package:meals_app/features/home/home_layout.dart';
 import 'package:meals_app/features/on_boarding/widgets/on_boarding_page_view.dart';
 
 class OnBoardingItem extends StatefulWidget {
@@ -59,7 +63,17 @@ class _OnBoardingItemState extends State<OnBoardingItem> {
         if (currentIndex == OnBoardingPageView.items.length - 1) ...[
           SizedBox(height: 46),
           IconButton(
-            onPressed: () {},
+            onPressed: () async {
+              await getIt<CacheHelper>().saveData(
+                key: AppConsts.onBoardingCheck,
+                value: true,
+              );
+              if (!context.mounted) return;
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => HomeLayout()),
+              );
+            },
             icon: Icon(
               context.locale.languageCode == 'en'
                   ? Icons.arrow_circle_right_rounded
@@ -74,7 +88,17 @@ class _OnBoardingItemState extends State<OnBoardingItem> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               TextButton(
-                onPressed: () {},
+                onPressed: () async {
+                  await getIt<CacheHelper>().saveData(
+                    key: AppConsts.onBoardingCheck,
+                    value: true,
+                  );
+                  if (!context.mounted) return;
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => HomeLayout()),
+                  );
+                },
                 child: Text(
                   'Skip',
                   style: TextStyle(

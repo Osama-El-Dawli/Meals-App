@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:meals_app/core/consts/app_consts.dart';
+import 'package:meals_app/core/helper/cach_helper.dart';
+import 'package:meals_app/core/services/service_locator.dart';
 import 'package:meals_app/core/utils/app_assets.dart';
+import 'package:meals_app/features/home/home_layout.dart';
 import 'package:meals_app/features/on_boarding/on_boarding_view.dart';
 import 'package:flutter/scheduler.dart';
 
@@ -14,7 +18,20 @@ class SplashView extends StatefulWidget {
 class _SplashViewState extends State<SplashView> {
   Duration? _animationDuration;
 
-  void _navigateAfterAnimation() {
+  void _navigateAfterAnimation() async {
+    await getIt<CacheHelper>().getData(key: AppConsts.onBoardingCheck) == true
+        ? _goToHome()
+        : _goToOnBoarding();
+  }
+
+  _goToHome() {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => const HomeLayout()),
+    );
+  }
+
+  void _goToOnBoarding() {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (context) => const OnBoardingView()),
