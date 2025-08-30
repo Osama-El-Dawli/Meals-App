@@ -8,6 +8,7 @@
   "Skip": "Skip",
   "Next": "Next",
   "My Meals": "My Meals",
+  "Meal Details": "Meal Details",
   "Home": "Home",
   "Add Meal": "Add Meal",
   "Profile": "Profile",
@@ -16,5 +17,6 @@
   "Rate": "Rate",
   "Time": "Time",
   "Description": "Description",
+  "Calories": "Calories",
   "Save": "Save"
 }

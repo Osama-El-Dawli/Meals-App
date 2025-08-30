@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/core/helper/database_helper.dart';
 import 'package:meals_app/features/home/models/meal_model.dart';
+import 'package:meals_app/features/home/screens/meal_details_screen.dart';
 import 'package:meals_app/features/home/widgets/meals_list_view_item.dart';
 
 class MealsListView extends StatelessWidget {
@@ -24,7 +25,15 @@ class MealsListView extends StatelessWidget {
           return ListView.builder(
             itemCount: meals.length,
             itemBuilder: (context, index) {
-              return MealsListViewItem(mealModel: meals[index]);
+              return InkWell(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MealDetailsScreen(mealModel: meals[index]),
+                  ),
+                ),
+                child: MealsListViewItem(mealModel: meals[index]),
+              );
             },
           );
         }

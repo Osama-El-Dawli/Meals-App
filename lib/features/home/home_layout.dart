@@ -18,7 +18,17 @@ class _HomeLayoutState extends State<HomeLayout> {
   int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
-    final screens = [HomeScreen(), AddMealScreen(), ProfileScreen()];
+    final screens = [
+      HomeScreen(),
+      AddMealScreen(
+        onMealAdded: () {
+          setState(() {
+            currentIndex = 0;
+          });
+        },
+      ),
+      ProfileScreen(),
+    ];
     return Scaffold(
       body: screens[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
