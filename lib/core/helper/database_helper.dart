@@ -1,3 +1,4 @@
+import 'package:meals_app/features/home/models/meal_model.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -24,16 +25,19 @@ abstract class DatabaseHelper {
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             name TEXT,
             description TEXT,
-            imageUrl TEXT
+            imageUrl TEXT,
+            calories INTEGER,
+            time TEXT,
+            rate REAL
           )
         ''');
       },
     );
   }
 
-  static Future<int> insertMeal(Map<String, dynamic> meal) async {
+  static Future<int> insertMeal(MealModel meal) async {
     final db = await database;
-    return await db.insert('meals', meal);
+    return await db.insert('meals', meal.toJson());
   }
 
   static Future<List<Map<String, dynamic>>> getMeals() async {
