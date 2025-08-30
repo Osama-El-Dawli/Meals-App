@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:meals_app/core/helper/cache_helper.dart';
-import 'package:meals_app/core/helper/database_helper.dart';
 import 'package:meals_app/core/services/service_locator.dart';
-import 'package:meals_app/features/home/models/meal_model.dart';
 import 'package:meals_app/features/splash/splash_view.dart';
 
 void main() async {

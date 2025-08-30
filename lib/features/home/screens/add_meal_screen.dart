@@ -5,6 +5,9 @@ class AddMealScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: const Text('Add Meal Screen'));
+    return Scaffold(
+      appBar: AppBar(),
+      body: const Center(child: Text('Add Meal Screen')),
+    );
   }
 }
